@@ -1,0 +1,40 @@
+{
+  "events": [
+    {
+      "id": "1",
+      "title_ro": "Ziua Mondială a Conștientizării Autismului",
+      "title_ru": "Всемирный день осведомлённости об аутизме",
+      "date": "2026-04-02",
+      "location_ro": "Chișinău, Centrul Cultural",
+      "location_ru": "Кишинёв, Культурный центр",
+      "description_ro": "Vă invităm la evenimentul anual de conștientizare a autismului. Vom avea activități educaționale, prezentări ale specialiștilor și momente artistice create de copiii noștri.",
+      "description_ru": "Приглашаем вас на ежегодное мероприятие по осведомлённости об аутизме. У нас будут образовательные мероприятия, презентации специалистов и художественные моменты, созданные нашими детьми.",
+      "image": "/events/autism-day.jpg",
+      "free": true
+    },
+    {
+      "id": "2",
+      "title_ro": "Atelier pentru Părinți: Tehnici ABA Acasă",
+      "title_ru": "Мастер-класс для родителей: АВА-техники дома",
+      "date": "2026-05-15",
+      "location_ro": "Chișinău, Centrul nostru",
+      "location_ru": "Кишинёв, Наш центр",
+      "description_ro": "Un atelier practic pentru părinți care doresc să aplice tehnicile ABA în viața de zi cu zi. Locuri limitate, înregistrare obligatorie.",
+      "description_ru": "Практический мастер-класс для родителей, желающих применять АВА-техники в повседневной жизни. Количество мест ограничено, регистрация обязательна.",
+      "image": "/events/workshop.jpg",
+      "free": false
+    },
+    {
+      "id": "3",
+      "title_ro": "Tabăra de Vară pentru Copii cu Autism",
+      "title_ru": "Летний лагерь для детей с аутизмом",
+      "date": "2026-07-01",
+      "location_ro": "Vadul lui Vodă, Moldova",
+      "location_ru": "Вадул луй Водэ, Молдова",
+      "description_ro": "O săptămână plină de activități terapeutice, jocuri, arte și bucurie pentru copiii cu autism și frații/surorile lor.",
+      "description_ru": "Неделя, полная терапевтических мероприятий, игр, искусства и радости для детей с аутизмом и их братьев и сестёр.",
+      "image": "/events/summer-camp.jpg",
+      "free": false
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "team": [
+    {
+      "id": "1",
+      "name": "Dr. Maria Ionescu",
+      "role_ro": "Psiholog Clinician, Director",
+      "role_ru": "Клинический психолог, Директор",
+      "bio_ro": "Cu peste 15 ani de experiență în terapia copiilor cu TSA, Dr. Ionescu este fondatoarea organizației și un expert recunoscut în domeniu.",
+      "bio_ru": "Имея более 15 лет опыта в терапии детей с РАС, д-р Ионеску является основателем организации и признанным экспертом в этой области.",
+      "image": "/team/maria.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Andrei Popescu",
+      "role_ro": "Terapeut ABA, BCBA",
+      "role_ru": "АВА-терапевт, BCBA",
+      "bio_ro": "Specialist certificat BCBA cu experiență în implementarea programelor de intervenție comportamentală timpurie.",
+      "bio_ru": "Сертифицированный специалист BCBA с опытом внедрения программ раннего поведенческого вмешательства.",
+      "image": "/team/andrei.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Elena Rusu",
+      "role_ro": "Logoped",
+      "role_ru": "Логопед",
+      "bio_ro": "Specializată în comunicare augmentativă și alternativă, ajutând copiii să-și găsească vocea.",
+      "bio_ru": "Специализируется на расширенной и альтернативной коммуникации, помогая детям найти свой голос.",
+      "image": "/team/elena.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Natalia Cojocaru",
+      "role_ro": "Educator Specializat",
+      "role_ru": "Специальный педагог",
+      "bio_ro": "Expert în dezvoltarea programelor educaționale individualizate și integrare școlară.",
+      "bio_ru": "Эксперт в разработке индивидуальных образовательных программ и школьной интеграции.",
+      "image": "/team/natalia.jpg"
+    }
+  ]
+}

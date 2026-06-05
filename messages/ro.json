@@ -1,0 +1,119 @@
+{
+  "nav": {
+    "home": "Acasă",
+    "history": "Despre noi",
+    "events": "Evenimente",
+    "location": "Locație",
+    "contact": "Contact",
+    "team": "Echipa",
+    "dashboard": "Panou de control",
+    "donate": "Donează",
+    "language": "Limbă"
+  },
+  "home": {
+    "hero_title": "Împreună pentru copiii cu autism",
+    "hero_subtitle": "Sprijinim familiile și copiii cu tulburări din spectrul autist din Moldova prin terapie, educație și comunitate.",
+    "hero_cta": "Află mai mult",
+    "hero_donate": "Donează acum",
+    "mission_title": "Misiunea noastră",
+    "mission_text": "Suntem o organizație non-profit dedicată îmbunătățirii calității vieții copiilor cu autism și familiilor lor din Republica Moldova. Oferim servicii de terapie, programe educaționale și suport comunitar.",
+    "stats_children": "Copii ajutați",
+    "stats_families": "Familii sprijinite",
+    "stats_years": "Ani de activitate",
+    "stats_specialists": "Specialiști",
+    "services_title": "Serviciile noastre",
+    "service_therapy": "Terapie ABA",
+    "service_therapy_desc": "Analiză comportamentală aplicată pentru dezvoltarea abilităților sociale și de comunicare.",
+    "service_education": "Programe educaționale",
+    "service_education_desc": "Cursuri și materiale adaptate nevoilor individuale ale fiecărui copil.",
+    "service_support": "Suport familial",
+    "service_support_desc": "Consiliere și ghidare pentru părinți și îngrijitori.",
+    "service_integration": "Integrare socială",
+    "service_integration_desc": "Activități de grup și programe de incluziune în comunitate.",
+    "cta_title": "Ajutați-ne să facem diferența",
+    "cta_text": "Donația dvs. ajută direct copiii și familiile care au nevoie de sprijin.",
+    "cta_button": "Donați acum"
+  },
+  "history": {
+    "title": "Istoria noastră",
+    "subtitle": "Un drum lung parcurs împreună",
+    "founding_title": "Fondarea organizației",
+    "founding_text": "Organizația a fost fondată în 2010 de un grup de părinți și specialiști dedicați, care au observat lipsa serviciilor specializate pentru copiii cu autism din Moldova.",
+    "mission_title": "Misiune și valori",
+    "mission_text": "Ne ghidăm după principiile incluziunii, respectului și excelenței în tot ceea ce facem. Credem că fiecare copil merită șansa de a-și atinge potențialul maxim.",
+    "milestones_title": "Etape importante"
+  },
+  "events": {
+    "title": "Evenimente",
+    "subtitle": "Activități și programe viitoare",
+    "no_events": "Nu există evenimente programate în prezent.",
+    "register": "Înregistrează-te",
+    "date": "Data",
+    "location": "Locație",
+    "free": "Gratuit",
+    "read_more": "Citește mai mult"
+  },
+  "location": {
+    "title": "Locația noastră",
+    "subtitle": "Cum ne găsești",
+    "address_title": "Adresă",
+    "address": "Chișinău, Republica Moldova",
+    "phone_title": "Telefon",
+    "email_title": "Email",
+    "hours_title": "Program de lucru",
+    "hours": "Luni - Vineri: 9:00 - 18:00",
+    "map_title": "Hartă"
+  },
+  "contact": {
+    "title": "Contactați-ne",
+    "subtitle": "Suntem aici pentru dvs.",
+    "name": "Nume complet",
+    "email": "Email",
+    "phone": "Telefon",
+    "message": "Mesaj",
+    "send": "Trimite mesajul",
+    "success": "Mesajul a fost trimis cu succes!",
+    "error": "A apărut o eroare. Vă rugăm să încercați din nou."
+  },
+  "team": {
+    "title": "Echipa noastră",
+    "subtitle": "Specialiști dedicați pentru copiii voștri"
+  },
+  "dashboard": {
+    "title": "Panou de control",
+    "welcome": "Bun venit",
+    "events_manage": "Gestionare evenimente",
+    "content_manage": "Gestionare conținut",
+    "team_manage": "Gestionare echipă",
+    "add_event": "Adaugă eveniment",
+    "edit": "Editează",
+    "delete": "Șterge",
+    "save": "Salvează",
+    "cancel": "Anulează",
+    "logout": "Deconectare",
+    "event_title": "Titlu eveniment",
+    "event_date": "Data",
+    "event_location": "Locație",
+    "event_description": "Descriere",
+    "event_image": "URL imagine",
+    "event_free": "Eveniment gratuit",
+    "member_name": "Nume",
+    "member_role": "Rol / Funcție",
+    "member_bio": "Biografie",
+    "member_image": "URL fotografie",
+    "confirm_delete": "Sigur doriți să ștergeți?"
+  },
+  "login": {
+    "title": "Autentificare",
+    "username": "Utilizator",
+    "password": "Parolă",
+    "submit": "Conectare",
+    "error": "Date de autentificare incorecte."
+  },
+  "footer": {
+    "tagline": "Împreună pentru un viitor mai bun",
+    "rights": "Toate drepturile rezervate",
+    "privacy": "Politica de confidențialitate",
+    "terms": "Termeni și condiții"
+  }
+}

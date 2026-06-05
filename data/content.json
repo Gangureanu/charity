@@ -1,0 +1,64 @@
+{
+  "site": {
+    "name": "ABA Moldova",
+    "tagline_ro": "Împreună pentru copiii cu autism",
+    "tagline_ru": "Вместе для детей с аутизмом",
+    "phone": "+373 22 000 000",
+    "email": "contact@abamoldova.md",
+    "address_ro": "str. Ștefan cel Mare 1, Chișinău, MD-2001",
+    "address_ru": "ул. Штефан чел Маре 1, Кишинёв, MD-2001",
+    "facebook": "https://facebook.com/abamoldova",
+    "instagram": "https://instagram.com/abamoldova",
+    "map_embed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d181.58!2d28.8576!3d47.0245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDAxJzI4LjIiTiAyOMKwNTEnMjcuNCJF!5e0!3m2!1sro!2smd!4v1234567890"
+  },
+  "stats": {
+    "children": "500+",
+    "families": "350+",
+    "years": "14",
+    "specialists": "25+"
+  },
+  "milestones": [
+    {
+      "year": "2010",
+      "title_ro": "Fondarea organizației",
+      "title_ru": "Основание организации",
+      "text_ro": "Un grup de părinți și specialiști întemeiază prima organizație specializată pentru autism din Moldova.",
+      "text_ru": "Группа родителей и специалистов основывает первую специализированную организацию по аутизму в Молдове."
+    },
+    {
+      "year": "2013",
+      "title_ro": "Primul centru terapeutic",
+      "title_ru": "Первый терапевтический центр",
+      "text_ro": "Deschiderea primului centru terapeutic cu 5 terapeuți și 30 de copii înscriși.",
+      "text_ru": "Открытие первого терапевтического центра с 5 терапевтами и 30 зачисленными детьми."
+    },
+    {
+      "year": "2016",
+      "title_ro": "Extinderea programelor",
+      "title_ru": "Расширение программ",
+      "text_ro": "Lansarea programelor de integrare școlară și a grupelor de terapie de grup.",
+      "text_ru": "Запуск программ школьной интеграции и групп групповой терапии."
+    },
+    {
+      "year": "2019",
+      "title_ro": "Recunoaștere internațională",
+      "title_ru": "Международное признание",
+      "text_ro": "Parteneriatul cu organizații internaționale și introducerea programelor certificate BCBA.",
+      "text_ru": "Партнёрство с международными организациями и введение сертифицированных программ BCBA."
+    },
+    {
+      "year": "2022",
+      "title_ro": "500 de familii ajutate",
+      "title_ru": "500 семей получили помощь",
+      "text_ro": "O etapă importantă: am ajutat peste 500 de familii din toată Moldova.",
+      "text_ru": "Важная веха: мы помогли более 500 семьям по всей Молдове."
+    },
+    {
+      "year": "2024",
+      "title_ro": "Noi facilități",
+      "title_ru": "Новые объекты",
+      "text_ro": "Inaugurarea noului centru modern cu săli specializate de terapie senzorială și motorie.",
+      "text_ru": "Открытие нового современного центра со специализированными залами сенсорной и двигательной терапии."
+    }
+  ]
+}
