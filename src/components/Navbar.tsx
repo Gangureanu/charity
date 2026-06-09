@@ -2,11 +2,10 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { Menu, X, Globe, Heart } from "lucide-react";
 import { routing } from "@/i18n/routing";
+import { Link, usePathname } from "@/i18n/navigation";
 
 export default function Navbar() {
   const t = useTranslations("nav");
@@ -39,16 +38,14 @@ export default function Navbar() {
     en: "English",
   };
   const localeOptions = routing.locales.filter((candidate) => candidate !== locale);
-  const getSwitchPath = (targetLocale: string) =>
-    pathname.replace(/^\/[^/]+/, `/${targetLocale}`);
 
   const navLinks = [
-    { href: `/${locale}`, label: t("home") },
-    { href: `/${locale}/history`, label: t("history") },
-    { href: `/${locale}/events`, label: t("events") },
-    { href: `/${locale}/team`, label: t("team") },
-    { href: `/${locale}/location`, label: t("location") },
-    { href: `/${locale}/contact`, label: t("contact") },
+    { href: "/", label: t("home") },
+    { href: "/history", label: t("history") },
+    { href: "/events", label: t("events") },
+    { href: "/team", label: t("team") },
+    { href: "/location", label: t("location") },
+    { href: "/contact", label: t("contact") },
   ];
 
   return (
@@ -62,7 +59,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <Image
               src="/logo.png"
               alt="ABA Moldova logo"
@@ -106,7 +103,8 @@ export default function Navbar() {
                   {localeOptions.map((targetLocale) => (
                     <Link
                       key={targetLocale}
-                      href={getSwitchPath(targetLocale)}
+                      href={pathname}
+                      locale={targetLocale}
                       className="flex items-center justify-between gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-[#f6f8ef] hover:text-[#73893b]"
                       onClick={() => setLangOpen(false)}
                     >
@@ -120,7 +118,7 @@ export default function Navbar() {
 
             {/* Donate button */}
             <Link
-              href={`/${locale}/contact`}
+              href="/contact"
               className="hidden sm:flex items-center gap-1 px-4 py-2 bg-[#d6a33b] text-[#173341] text-sm font-semibold rounded-lg hover:bg-[#c29231] transition-colors"
             >
               <Heart className="w-4 h-4" />
@@ -157,7 +155,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href={`/${locale}/contact`}
+              href="/contact"
               onClick={() => setMobileOpen(false)}
               className="flex items-center gap-1 px-3 py-2 bg-[#d6a33b] text-[#173341] rounded-md text-sm font-semibold"
             >
