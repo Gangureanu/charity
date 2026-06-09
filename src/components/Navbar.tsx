@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import NextLink from "next/link";
+import { usePathname as useNextPathname } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { Menu, X, Globe, Heart } from "lucide-react";
 import { routing } from "@/i18n/routing";
@@ -11,6 +13,7 @@ export default function Navbar() {
   const t = useTranslations("nav");
   const locale = useLocale();
   const pathname = usePathname();
+  const nextPathname = useNextPathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
@@ -38,8 +41,19 @@ export default function Navbar() {
     en: "English",
   };
   const localeOptions = routing.locales.filter((candidate) => candidate !== locale);
+  const getSwitchPath = (targetLocale: string) =>
+    nextPathname.replace(/^\/[^/]+/, `/${targetLocale}`);
 
-  const navLinks = [
+  const navLinks: Array<{
+    href:
+      | "/"
+      | "/history"
+      | "/events"
+      | "/team"
+      | "/location"
+      | "/contact";
+    label: string;
+  }> = [
     { href: "/", label: t("home") },
     { href: "/history", label: t("history") },
     { href: "/events", label: t("events") },
@@ -101,16 +115,15 @@ export default function Navbar() {
               {langOpen && (
                 <div className="absolute right-0 mt-1 w-40 bg-white rounded-lg shadow-lg border border-[#e6edd5] overflow-hidden z-50">
                   {localeOptions.map((targetLocale) => (
-                    <Link
+                    <NextLink
                       key={targetLocale}
-                      href={pathname}
-                      locale={targetLocale}
+                      href={getSwitchPath(targetLocale)}
                       className="flex items-center justify-between gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-[#f6f8ef] hover:text-[#73893b]"
                       onClick={() => setLangOpen(false)}
                     >
                       <span className="font-medium uppercase">{targetLocale}</span>
                       <span className="text-gray-500">{localeLabels[targetLocale] ?? targetLocale}</span>
-                    </Link>
+                    </NextLink>
                   ))}
                 </div>
               )}
