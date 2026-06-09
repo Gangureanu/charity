@@ -16,6 +16,38 @@ export default function HomePage() {
   const content = getContent();
   const stats = content.stats;
   const te = useTranslations("events");
+  const isRo = locale === "ro";
+
+  const aboutParagraphs = isRo
+    ? [
+        "Școala de Valori este un centru educațional și de dezvoltare personală constituit în cadrul Fundației \"Donează pentru copii\". Fundația \"Donează pentru copii\" este o organizație non-profit cu o activitate de peste 11 ani, dedicată sprijinirii copiilor și tinerilor, inclusiv a celor cu cerințe educaționale speciale (CES). Scopul nostru principal este de a facilita integrarea socială și educațională a copiilor și tinerilor cu CES, oferind asistență psihologică atât acestora, cât și persoanelor care îi îngrijesc.",
+        "Fundația noastră se concentrează pe sprijinirea familiilor copiilor cu CES prin programe educative și informative pentru copii, tineri, părinți și specialiști. Organizăm traininguri profesionale, cursuri de pregătire pentru cadre didactice, părinți și specialiști care lucrează cu copii diagnosticați cu tulburări de spectru autist, precum și activități de analiză aplicată a comportamentului pentru dezvoltarea abilităților sociale și emoționale.",
+        "Unul dintre obiectivele noastre principale este crearea unui centru multifuncțional care să ofere servicii de psihoterapie, psihopedagogie, terapie ocupațională și alte forme de terapie pentru copii cu CES, autism, boli genetice rare, sindrom Down sau probleme comportamentale. De asemenea, organizăm ateliere practice precum olărit, arte plastice, catering și meșteșugărit, atât pentru copiii cu nevoi speciale, cât și pentru părinții lor."
+      ]
+    : [
+        "Școala de Valori - это образовательный центр и пространство личностного развития, созданное в рамках Фонда \"Donează pentru copii\". Фонд является некоммерческой организацией с более чем 11-летним опытом поддержки детей и молодежи, в том числе детей с особыми образовательными потребностями.",
+        "Наша цель - содействовать социальной и образовательной интеграции детей и молодежи с особыми образовательными потребностями, предоставляя психологическую поддержку как им, так и людям, которые о них заботятся. Мы развиваем образовательные и информационные программы для детей, молодых людей, родителей и специалистов, а также проводим профессиональные тренинги и курсы подготовки для тех, кто работает с детьми с расстройствами аутистического спектра.",
+        "Одной из наших ключевых задач является создание многофункционального центра, который будет предоставлять услуги психотерапии, психопедагогики, трудотерапии и других форм терапии для детей с особыми образовательными потребностями, аутизмом, редкими генетическими заболеваниями, синдромом Дауна или поведенческими трудностями. Мы также организуем практические мастерские по керамике, изобразительному искусству, кейтерингу и ремеслам для детей с особыми потребностями и их родителей."
+      ];
+
+  const aboutHighlights = isRo
+    ? [
+        "Integrare socială și educațională pentru copii și tineri cu CES",
+        "Asistență psihologică pentru beneficiari și îngrijitori",
+        "Traininguri și cursuri pentru părinți, specialiști și cadre didactice",
+        "Ateliere practice și intervenții terapeutice multidisciplinare"
+      ]
+    : [
+        "Социальная и образовательная интеграция детей и молодежи с особыми потребностями",
+        "Психологическая поддержка для бенефициаров и их опекунов",
+        "Тренинги и курсы для родителей, специалистов и педагогов",
+        "Практические мастерские и мультидисциплинарные терапевтические услуги"
+      ];
+
+  const aboutTitle = isRo ? "Despre noi" : "О нас";
+  const aboutDocsNote = isRo
+    ? "Actele de înregistrare de stat pot fi fi publicate aici imediat ce sunt încărcate în site."
+    : "Документы о государственной регистрации могут быть опубликованы здесь сразу после загрузки на сайт.";
 
   const services = [
     {
@@ -167,6 +199,45 @@ export default function HomePage() {
               {/* Decorative dots */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-amber-100 rounded-full -z-10" />
               <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-blue-100 rounded-full -z-10" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section className="py-16 bg-[#f8fcfc]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-start">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#e4f4f7] px-4 py-2 text-sm font-medium text-[#0f6f86] mb-5">
+                <Heart className="w-4 h-4" fill="currentColor" />
+                {aboutTitle}
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                {isRo ? "Școala de Valori și Fundația \"Donează pentru copii\"" : "Școala de Valori и Фонд \"Donează pentru copii\""}
+              </h2>
+              <div className="space-y-5 text-gray-700 text-lg leading-relaxed">
+                {aboutParagraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+              <div className="mt-6 rounded-2xl border border-[#d9ecef] bg-white px-5 py-4 text-sm text-slate-600">
+                {aboutDocsNote}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-3xl border border-[#d9ecef] shadow-sm p-8">
+              <h3 className="text-xl font-semibold text-gray-900 mb-5">
+                {isRo ? "Direcții principale de activitate" : "Основные направления деятельности"}
+              </h3>
+              <ul className="space-y-4">
+                {aboutHighlights.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 mt-0.5 shrink-0 text-[#0f6f86]" />
+                    <span className="text-gray-700 leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

@@ -10,6 +10,7 @@ interface SiteContent {
     tagline_ro: string;
     tagline_ru: string;
     phone: string;
+    phone_secondary: string;
     email: string;
     address_ro: string;
     address_ru: string;
