@@ -1,0 +1,119 @@
+{
+  "nav": {
+    "home": "Home",
+    "history": "About us",
+    "events": "Events",
+    "location": "Location",
+    "contact": "Contact",
+    "team": "Team",
+    "dashboard": "Dashboard",
+    "donate": "Donate",
+    "language": "Language"
+  },
+  "home": {
+    "hero_title": "Together for children with autism",
+    "hero_subtitle": "We support families and children with autism spectrum disorders in Moldova through therapy, education, and community.",
+    "hero_cta": "Learn more",
+    "hero_donate": "Donate now",
+    "mission_title": "Our mission",
+    "mission_text": "We are a non-profit organization dedicated to improving the quality of life of children with autism and their families in the Republic of Moldova. We provide therapy services, educational programs, and community support.",
+    "stats_children": "Children supported",
+    "stats_families": "Families supported",
+    "stats_years": "Years of activity",
+    "stats_specialists": "Specialists",
+    "services_title": "Our services",
+    "service_therapy": "ABA Therapy",
+    "service_therapy_desc": "Applied behavior analysis to develop social and communication skills.",
+    "service_education": "Educational programs",
+    "service_education_desc": "Courses and materials tailored to each child's individual needs.",
+    "service_support": "Family support",
+    "service_support_desc": "Guidance and counseling for parents and caregivers.",
+    "service_integration": "Social integration",
+    "service_integration_desc": "Group activities and community inclusion programs.",
+    "cta_title": "Help us make a difference",
+    "cta_text": "Your donation directly supports children and families who need help.",
+    "cta_button": "Donate now"
+  },
+  "history": {
+    "title": "Our history",
+    "subtitle": "A long journey together",
+    "founding_title": "Founding of the organization",
+    "founding_text": "The organization was founded in 2010 by a dedicated group of parents and specialists who saw the lack of specialized services for children with autism in Moldova.",
+    "mission_title": "Mission and values",
+    "mission_text": "We are guided by inclusion, respect, and excellence in everything we do. We believe every child deserves the opportunity to reach their full potential.",
+    "milestones_title": "Important milestones"
+  },
+  "events": {
+    "title": "Events",
+    "subtitle": "Upcoming activities and programs",
+    "no_events": "There are currently no scheduled events.",
+    "register": "Register",
+    "date": "Date",
+    "location": "Location",
+    "free": "Free",
+    "read_more": "Read more"
+  },
+  "location": {
+    "title": "Our location",
+    "subtitle": "How to find us",
+    "address_title": "Address",
+    "address": "Chisinau, Republic of Moldova",
+    "phone_title": "Phone",
+    "email_title": "Email",
+    "hours_title": "Working hours",
+    "hours": "Monday - Friday: 9:00 - 18:00",
+    "map_title": "Map"
+  },
+  "contact": {
+    "title": "Contact us",
+    "subtitle": "We are here for you",
+    "name": "Full name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "Send message",
+    "success": "Your message was sent successfully!",
+    "error": "An error occurred. Please try again."
+  },
+  "team": {
+    "title": "Our team",
+    "subtitle": "Dedicated specialists for your children"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome",
+    "events_manage": "Manage events",
+    "content_manage": "Manage content",
+    "team_manage": "Manage team",
+    "add_event": "Add event",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "logout": "Log out",
+    "event_title": "Event title",
+    "event_date": "Date",
+    "event_location": "Location",
+    "event_description": "Description",
+    "event_image": "Image URL",
+    "event_free": "Free event",
+    "member_name": "Name",
+    "member_role": "Role / Position",
+    "member_bio": "Biography",
+    "member_image": "Photo URL",
+    "confirm_delete": "Are you sure you want to delete?"
+  },
+  "login": {
+    "title": "Login",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Sign in",
+    "error": "Invalid login credentials."
+  },
+  "footer": {
+    "tagline": "Together for a better future",
+    "rights": "All rights reserved",
+    "privacy": "Privacy policy",
+    "terms": "Terms and conditions"
+  }
+}

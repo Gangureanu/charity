@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { Menu, X, Globe, Heart } from "lucide-react";
+import { routing } from "@/i18n/routing";
 
 export default function Navbar() {
   const t = useTranslations("nav");
@@ -32,9 +33,14 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const otherLocale = locale === "ro" ? "ru" : "ro";
-  // Switch locale: replace the locale prefix in the pathname
-  const switchPath = pathname.replace(`/${locale}`, `/${otherLocale}`);
+  const localeLabels: Record<string, string> = {
+    ro: "Romana",
+    ru: "Russkiy",
+    en: "English",
+  };
+  const localeOptions = routing.locales.filter((candidate) => candidate !== locale);
+  const getSwitchPath = (targetLocale: string) =>
+    pathname.replace(/^\/[^/]+/, `/${targetLocale}`);
 
   const navLinks = [
     { href: `/${locale}`, label: t("home") },
@@ -96,15 +102,18 @@ export default function Navbar() {
                 <span className="uppercase">{locale}</span>
               </button>
               {langOpen && (
-                <div className="absolute right-0 mt-1 w-28 bg-white rounded-lg shadow-lg border border-[#e6edd5] overflow-hidden z-50">
-                  <Link
-                    href={switchPath}
-                    className="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-[#f6f8ef] hover:text-[#73893b]"
-                    onClick={() => setLangOpen(false)}
-                  >
-                    <span className="font-medium uppercase">{otherLocale}</span>
-                    <span className="text-gray-500">{otherLocale === "ro" ? "Română" : "Русский"}</span>
-                  </Link>
+                <div className="absolute right-0 mt-1 w-40 bg-white rounded-lg shadow-lg border border-[#e6edd5] overflow-hidden z-50">
+                  {localeOptions.map((targetLocale) => (
+                    <Link
+                      key={targetLocale}
+                      href={getSwitchPath(targetLocale)}
+                      className="flex items-center justify-between gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-[#f6f8ef] hover:text-[#73893b]"
+                      onClick={() => setLangOpen(false)}
+                    >
+                      <span className="font-medium uppercase">{targetLocale}</span>
+                      <span className="text-gray-500">{localeLabels[targetLocale] ?? targetLocale}</span>
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>

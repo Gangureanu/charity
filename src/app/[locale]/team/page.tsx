@@ -21,8 +21,8 @@ export default function TeamPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((member) => {
-              const role = locale === "ro" ? member.role_ro : member.role_ru;
-              const bio = locale === "ro" ? member.bio_ro : member.bio_ru;
+              const role = locale === "ru" ? member.role_ru : member.role_ro;
+              const bio = locale === "ru" ? member.bio_ru : member.bio_ro;
 
               return (
                 <div

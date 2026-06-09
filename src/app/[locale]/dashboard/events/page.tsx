@@ -31,6 +31,8 @@ const empty: Omit<Event, "id"> = {
 
 export default function DashboardEventsPage() {
   const locale = useLocale();
+  const isRu = locale === "ru";
+  const isEn = locale === "en";
   const [events, setEvents] = useState<Event[]>([]);
   const [editing, setEditing] = useState<Event | null>(null);
   const [creating, setCreating] = useState(false);
@@ -87,28 +89,26 @@ export default function DashboardEventsPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm(locale === "ro" ? "Sigur doriți să ștergeți?" : "Вы уверены, что хотите удалить?")) return;
+    if (!confirm(isRu ? "Вы уверены, что хотите удалить?" : isEn ? "Are you sure you want to delete?" : "Sigur doriți să ștergeți?")) return;
     await fetch(`/api/dashboard/events?id=${id}`, { method: "DELETE" });
     setEvents(events.filter((e) => e.id !== id));
   };
-
-  const isRo = locale === "ro";
 
   return (
     <div className="p-8">
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">
-            {isRo ? "Gestionare evenimente" : "Управление мероприятиями"}
+            {isRu ? "Управление мероприятиями" : isEn ? "Manage events" : "Gestionare evenimente"}
           </h1>
-          <p className="text-gray-600 mt-1">{events.length} {isRo ? "evenimente" : "мероприятий"}</p>
+          <p className="text-gray-600 mt-1">{events.length} {isRu ? "мероприятий" : isEn ? "events" : "evenimente"}</p>
         </div>
         <button
           onClick={openCreate}
           className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors"
         >
           <Plus className="w-4 h-4" />
-          {isRo ? "Adaugă eveniment" : "Добавить мероприятие"}
+          {isRu ? "Добавить мероприятие" : isEn ? "Add event" : "Adaugă eveniment"}
         </button>
       </div>
 
@@ -122,15 +122,15 @@ export default function DashboardEventsPage() {
               </div>
               <div className="min-w-0">
                 <h3 className="font-semibold text-gray-900 truncate">
-                  {isRo ? event.title_ro : event.title_ru}
+                  {isRu ? event.title_ru : event.title_ro}
                 </h3>
                 <p className="text-sm text-gray-500 mt-1">
-                  {new Date(event.date).toLocaleDateString(isRo ? "ro-RO" : "ru-RU")} •{" "}
-                  {isRo ? event.location_ro : event.location_ru}
+                  {new Date(event.date).toLocaleDateString(isRu ? "ru-RU" : isEn ? "en-GB" : "ro-RO")} •{" "}
+                  {isRu ? event.location_ru : event.location_ro}
                 </p>
                 {event.free && (
                   <span className="mt-1 inline-block text-xs px-2 py-0.5 bg-green-100 text-green-700 rounded-full">
-                    {isRo ? "Gratuit" : "Бесплатно"}
+                    {isRu ? "Бесплатно" : isEn ? "Free" : "Gratuit"}
                   </span>
                 )}
               </div>
@@ -160,8 +160,8 @@ export default function DashboardEventsPage() {
             <div className="flex items-center justify-between p-6 border-b border-gray-100">
               <h2 className="text-xl font-bold text-gray-900">
                 {creating
-                  ? (isRo ? "Adaugă eveniment" : "Добавить мероприятие")
-                  : (isRo ? "Editează eveniment" : "Редактировать мероприятие")}
+                    ? (isRu ? "Добавить мероприятие" : isEn ? "Add event" : "Adaugă eveniment")
+                    : (isRu ? "Редактировать мероприятие" : isEn ? "Edit event" : "Editează eveniment")}
               </h2>
               <button onClick={closeModal} className="p-2 text-gray-400 hover:text-gray-600 rounded-lg">
                 <X className="w-5 h-5" />
@@ -171,14 +171,14 @@ export default function DashboardEventsPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    {isRo ? "Titlu (RO)" : "Название (RO)"}
+                    {isRu ? "Название (RO)" : isEn ? "Title (RO)" : "Titlu (RO)"}
                   </label>
                   <input type="text" value={form.title_ro} onChange={(e) => setForm({ ...form, title_ro: e.target.value })}
                     className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    {isRo ? "Titlu (RU)" : "Название (RU)"}
+                    {isRu ? "Название (RU)" : isEn ? "Title (RU)" : "Titlu (RU)"}
                   </label>
                   <input type="text" value={form.title_ru} onChange={(e) => setForm({ ...form, title_ru: e.target.value })}
                     className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
@@ -186,7 +186,7 @@ export default function DashboardEventsPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {isRo ? "Data" : "Дата"}
+                  {isRu ? "Дата" : isEn ? "Date" : "Data"}
                 </label>
                 <input type="date" value={form.date} onChange={(e) => setForm({ ...form, date: e.target.value })}
                   className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
@@ -194,14 +194,14 @@ export default function DashboardEventsPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    {isRo ? "Locație (RO)" : "Место (RO)"}
+                    {isRu ? "Место (RO)" : isEn ? "Location (RO)" : "Locație (RO)"}
                   </label>
                   <input type="text" value={form.location_ro} onChange={(e) => setForm({ ...form, location_ro: e.target.value })}
                     className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    {isRo ? "Locație (RU)" : "Место (RU)"}
+                    {isRu ? "Место (RU)" : isEn ? "Location (RU)" : "Locație (RU)"}
                   </label>
                   <input type="text" value={form.location_ru} onChange={(e) => setForm({ ...form, location_ru: e.target.value })}
                     className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
@@ -209,14 +209,14 @@ export default function DashboardEventsPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {isRo ? "Descriere (RO)" : "Описание (RO)"}
+                  {isRu ? "Описание (RO)" : isEn ? "Description (RO)" : "Descriere (RO)"}
                 </label>
                 <textarea rows={3} value={form.description_ro} onChange={(e) => setForm({ ...form, description_ro: e.target.value })}
                   className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm resize-none" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {isRo ? "Descriere (RU)" : "Описание (RU)"}
+                  {isRu ? "Описание (RU)" : isEn ? "Description (RU)" : "Descriere (RU)"}
                 </label>
                 <textarea rows={3} value={form.description_ru} onChange={(e) => setForm({ ...form, description_ru: e.target.value })}
                   className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm resize-none" />
@@ -225,19 +225,19 @@ export default function DashboardEventsPage() {
                 <input type="checkbox" id="free" checked={form.free} onChange={(e) => setForm({ ...form, free: e.target.checked })}
                   className="w-4 h-4 text-blue-600 rounded" />
                 <label htmlFor="free" className="text-sm font-medium text-gray-700">
-                  {isRo ? "Eveniment gratuit" : "Бесплатное мероприятие"}
+                  {isRu ? "Бесплатное мероприятие" : isEn ? "Free event" : "Eveniment gratuit"}
                 </label>
               </div>
             </div>
             <div className="flex gap-3 p-6 border-t border-gray-100">
               <button onClick={closeModal}
                 className="flex-1 px-4 py-2 text-gray-700 bg-gray-100 rounded-xl font-medium hover:bg-gray-200 transition-colors">
-                {isRo ? "Anulează" : "Отмена"}
+                {isRu ? "Отмена" : isEn ? "Cancel" : "Anulează"}
               </button>
               <button onClick={handleSave} disabled={loading}
                 className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors disabled:opacity-60">
                 {loading ? <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <Save className="w-4 h-4" />}
-                {isRo ? "Salvează" : "Сохранить"}
+                {isRu ? "Сохранить" : isEn ? "Save" : "Salvează"}
               </button>
             </div>
           </div>

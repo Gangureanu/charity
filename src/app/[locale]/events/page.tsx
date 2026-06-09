@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { getEvents } from "@/lib/data";
-import { Calendar, MapPin, Tag } from "lucide-react";
+import { Calendar, MapPin } from "lucide-react";
 
 export default function EventsPage() {
   const t = useTranslations("events");
@@ -29,11 +29,11 @@ export default function EventsPage() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {events.map((event) => {
-                const title = locale === "ro" ? event.title_ro : event.title_ru;
-                const location = locale === "ro" ? event.location_ro : event.location_ru;
-                const description = locale === "ro" ? event.description_ro : event.description_ru;
+                const title = locale === "ru" ? event.title_ru : event.title_ro;
+                const location = locale === "ru" ? event.location_ru : event.location_ro;
+                const description = locale === "ru" ? event.description_ru : event.description_ro;
                 const dateStr = new Date(event.date).toLocaleDateString(
-                  locale === "ro" ? "ro-RO" : "ru-RU",
+                  locale === "ru" ? "ru-RU" : locale === "en" ? "en-GB" : "ro-RO",
                   { day: "numeric", month: "long", year: "numeric" }
                 );
 

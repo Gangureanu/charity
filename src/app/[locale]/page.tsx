@@ -16,38 +16,60 @@ export default function HomePage() {
   const content = getContent();
   const stats = content.stats;
   const te = useTranslations("events");
-  const isRo = locale === "ro";
+  const isRu = locale === "ru";
+  const isEn = locale === "en";
 
-  const aboutParagraphs = isRo
+  const aboutParagraphs = isRu
     ? [
+        "Școala de Valori - это образовательный центр и пространство личностного развития, созданное в рамках Фонда \"Donează pentru copii\". Фонд является некоммерческой организацией с более чем 11-летним опытом поддержки детей и молодежи, в том числе детей с особыми образовательными потребностями.",
+        "Наша цель - содействовать социальной и образовательной интеграции детей и молодежи с особыми образовательными потребностями, предоставляя психологическую поддержку как им, так и людям, которые о них заботятся. Мы развиваем образовательные и информационные программы для детей, молодых людей, родителей и специалистов, а также проводим профессиональные тренинги и курсы подготовки для тех, кто работает с детьми с расстройствами аутистического спектра.",
+        "Одной из наших ключевых задач является создание многофункционального центра, который будет предоставлять услуги психотерапии, психопедагогики, трудотерапии и других форм терапии для детей с особыми образовательными потребностями, аутизмом, редкими генетическими заболеваниями, синдромом Дауна или поведенческими трудностями. Мы также организуем практические мастерские по керамике, изобразительному искусству, кейтерингу и ремеслам для детей с особыми потребностями и их родителей."
+      ]
+    : isEn
+    ? [
+        "Școala de Valori is an educational and personal development center created within the Donează pentru copii Foundation. The foundation is a non-profit organization with more than 11 years of experience supporting children and young people, including children with special educational needs.",
+        "Our goal is to support the social and educational integration of children and youth with special educational needs by providing psychological support for both beneficiaries and their caregivers. We run educational and informational programs for children, parents, and professionals, along with practical training for those working with children on the autism spectrum.",
+        "One of our key priorities is building a multifunctional center that offers psychotherapy, psycho-pedagogical support, occupational therapy, and other interventions for children with special educational needs, autism, rare genetic conditions, Down syndrome, or behavioral challenges. We also organize practical workshops in ceramics, visual arts, catering, and crafts for children and their parents."
+      ]
+    : [
         "Școala de Valori este un centru educațional și de dezvoltare personală constituit în cadrul Fundației \"Donează pentru copii\". Fundația \"Donează pentru copii\" este o organizație non-profit cu o activitate de peste 11 ani, dedicată sprijinirii copiilor și tinerilor, inclusiv a celor cu cerințe educaționale speciale (CES). Scopul nostru principal este de a facilita integrarea socială și educațională a copiilor și tinerilor cu CES, oferind asistență psihologică atât acestora, cât și persoanelor care îi îngrijesc.",
         "Fundația noastră se concentrează pe sprijinirea familiilor copiilor cu CES prin programe educative și informative pentru copii, tineri, părinți și specialiști. Organizăm traininguri profesionale, cursuri de pregătire pentru cadre didactice, părinți și specialiști care lucrează cu copii diagnosticați cu tulburări de spectru autist, precum și activități de analiză aplicată a comportamentului pentru dezvoltarea abilităților sociale și emoționale.",
         "Unul dintre obiectivele noastre principale este crearea unui centru multifuncțional care să ofere servicii de psihoterapie, psihopedagogie, terapie ocupațională și alte forme de terapie pentru copii cu CES, autism, boli genetice rare, sindrom Down sau probleme comportamentale. De asemenea, organizăm ateliere practice precum olărit, arte plastice, catering și meșteșugărit, atât pentru copiii cu nevoi speciale, cât și pentru părinții lor."
       ]
-    : [
-        "Școala de Valori - это образовательный центр и пространство личностного развития, созданное в рамках Фонда \"Donează pentru copii\". Фонд является некоммерческой организацией с более чем 11-летним опытом поддержки детей и молодежи, в том числе детей с особыми образовательными потребностями.",
-        "Наша цель - содействовать социальной и образовательной интеграции детей и молодежи с особыми образовательными потребностями, предоставляя психологическую поддержку как им, так и людям, которые о них заботятся. Мы развиваем образовательные и информационные программы для детей, молодых людей, родителей и специалистов, а также проводим профессиональные тренинги и курсы подготовки для тех, кто работает с детьми с расстройствами аутистического спектра.",
-        "Одной из наших ключевых задач является создание многофункционального центра, который будет предоставлять услуги психотерапии, психопедагогики, трудотерапии и других форм терапии для детей с особыми образовательными потребностями, аутизмом, редкими генетическими заболеваниями, синдромом Дауна или поведенческими трудностями. Мы также организуем практические мастерские по керамике, изобразительному искусству, кейтерингу и ремеслам для детей с особыми потребностями и их родителей."
-      ];
+    ;
 
-  const aboutHighlights = isRo
+  const aboutHighlights = isRu
     ? [
+        "Социальная и образовательная интеграция детей и молодежи с особыми потребностями",
+        "Психологическая поддержка для бенефициаров и их опекунов",
+        "Тренинги и курсы для родителей, специалистов и педагогов",
+        "Практические мастерские и мультидисциплинарные терапевтические услуги"
+      ]
+    : isEn
+    ? [
+        "Social and educational integration for children and youth with special educational needs",
+        "Psychological support for beneficiaries and caregivers",
+        "Training and courses for parents, specialists, and teachers",
+        "Practical workshops and multidisciplinary therapeutic interventions"
+      ]
+    : [
         "Integrare socială și educațională pentru copii și tineri cu CES",
         "Asistență psihologică pentru beneficiari și îngrijitori",
         "Traininguri și cursuri pentru părinți, specialiști și cadre didactice",
         "Ateliere practice și intervenții terapeutice multidisciplinare"
       ]
-    : [
-        "Социальная и образовательная интеграция детей и молодежи с особыми потребностями",
-        "Психологическая поддержка для бенефициаров и их опекунов",
-        "Тренинги и курсы для родителей, специалистов и педагогов",
-        "Практические мастерские и мультидисциплинарные терапевтические услуги"
-      ];
+    ;
 
-  const aboutTitle = isRo ? "Despre noi" : "О нас";
-  const aboutDocsNote = isRo
-    ? "Actele de înregistrare de stat pot fi fi publicate aici imediat ce sunt încărcate în site."
-    : "Документы о государственной регистрации могут быть опубликованы здесь сразу после загрузки на сайт.";
+  const aboutTitle = isRu ? "О нас" : isEn ? "About us" : "Despre noi";
+  const aboutDocsNote = isRu
+    ? "Документы о государственной регистрации могут быть опубликованы здесь сразу после загрузки на сайт."
+    : isEn
+    ? "State registration documents can be published here as soon as they are uploaded to the website."
+    : "Actele de înregistrare de stat pot fi fi publicate aici imediat ce sunt încărcate în site.";
+  const aboutHeading = isRu
+    ? "Școala de Valori и Фонд \"Donează pentru copii\""
+    : "Școala de Valori și Fundația \"Donează pentru copii\"";
+  const highlightsHeading = isRu ? "Основные направления деятельности" : isEn ? "Main areas of activity" : "Direcții principale de activitate";
 
   const services = [
     {
@@ -192,7 +214,7 @@ export default function HomePage() {
                   </div>
                   <p className="text-blue-800 font-semibold text-lg">ABA Moldova</p>
                   <p className="text-blue-600 text-sm mt-1">
-                    {locale === "ro" ? "Împreună facem diferența" : "Вместе мы делаем разницу"}
+                    {locale === "ru" ? "Вместе мы делаем разницу" : locale === "en" ? "Together we make a difference" : "Împreună facem diferența"}
                   </p>
                 </div>
               </div>
@@ -213,9 +235,7 @@ export default function HomePage() {
                 <Heart className="w-4 h-4" fill="currentColor" />
                 {aboutTitle}
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                {isRo ? "Școala de Valori și Fundația \"Donează pentru copii\"" : "Școala de Valori и Фонд \"Donează pentru copii\""}
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{aboutHeading}</h2>
               <div className="space-y-5 text-gray-700 text-lg leading-relaxed">
                 {aboutParagraphs.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
@@ -227,9 +247,7 @@ export default function HomePage() {
             </div>
 
             <div className="bg-white rounded-3xl border border-[#e6edd5] shadow-sm p-8">
-              <h3 className="text-xl font-semibold text-gray-900 mb-5">
-                {isRo ? "Direcții principale de activitate" : "Основные направления деятельности"}
-              </h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-5">{highlightsHeading}</h3>
               <ul className="space-y-4">
                 {aboutHighlights.map((item) => (
                   <li key={item} className="flex items-start gap-3">

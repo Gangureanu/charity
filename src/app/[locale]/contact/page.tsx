@@ -33,11 +33,11 @@ export default function ContactPage() {
   const phoneNumbers = [content?.site.phone, content?.site.phone_secondary].filter(
     (phone): phone is string => Boolean(phone)
   );
-  const address = locale === "ro" ? content?.site.address_ro : content?.site.address_ru;
+  const address = locale === "ru" ? content?.site.address_ru : content?.site.address_ro;
   const toTelHref = (phone: string) => `tel:${phone.replace(/[^+\d]/g, "")}`;
-  const infoTitle = locale === "ro" ? "Date de contact" : "Контактные данные";
-  const addressLabel = locale === "ro" ? "Adresă" : "Адрес";
-  const facebookLabel = locale === "ro" ? "Facebook" : "Facebook";
+  const infoTitle = locale === "ru" ? "Контактные данные" : locale === "en" ? "Contact details" : "Date de contact";
+  const addressLabel = locale === "ru" ? "Адрес" : locale === "en" ? "Address" : "Adresa";
+  const facebookLabel = "Facebook";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

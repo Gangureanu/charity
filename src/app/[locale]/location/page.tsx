@@ -7,7 +7,7 @@ export default function LocationPage() {
   const locale = useLocale();
   const content = getContent();
 
-  const address = locale === "ro" ? content.site.address_ro : content.site.address_ru;
+  const address = locale === "ru" ? content.site.address_ru : content.site.address_ro;
 
   return (
     <>
@@ -89,7 +89,7 @@ export default function LocationPage() {
                 <div className="text-center text-gray-500 p-8">
                   <MapPin className="w-16 h-16 mx-auto mb-4 text-gray-300" />
                   <p className="text-lg font-medium">
-                    {locale === "ro" ? "Chișinău, Republica Moldova" : "Кишинёв, Республика Молдова"}
+                    {locale === "ru" ? "Кишинёв, Республика Молдова" : locale === "en" ? "Chisinau, Republic of Moldova" : "Chișinău, Republica Moldova"}
                   </p>
                   <a
                     href="https://maps.google.com/?q=Chisinau,Moldova"
@@ -98,7 +98,7 @@ export default function LocationPage() {
                     className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
                   >
                     <MapPin className="w-4 h-4" />
-                    {locale === "ro" ? "Deschide în Google Maps" : "Открыть в Google Maps"}
+                    {locale === "ru" ? "Открыть в Google Maps" : locale === "en" ? "Open in Google Maps" : "Deschide în Google Maps"}
                   </a>
                 </div>
               </div>

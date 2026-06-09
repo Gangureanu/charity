@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { useTranslations, useLocale } from "next-intl";
 import { getEvent } from "@/lib/data";
-import { Calendar, MapPin, ArrowLeft, Tag } from "lucide-react";
+import { Calendar, MapPin, ArrowLeft } from "lucide-react";
 
 export default async function EventDetailPage({
   params,
@@ -13,11 +12,11 @@ export default async function EventDetailPage({
   const event = getEvent(id);
   if (!event) notFound();
 
-  const title = locale === "ro" ? event.title_ro : event.title_ru;
-  const location = locale === "ro" ? event.location_ro : event.location_ru;
-  const description = locale === "ro" ? event.description_ro : event.description_ru;
+  const title = locale === "ru" ? event.title_ru : event.title_ro;
+  const location = locale === "ru" ? event.location_ru : event.location_ro;
+  const description = locale === "ru" ? event.description_ru : event.description_ro;
   const dateStr = new Date(event.date).toLocaleDateString(
-    locale === "ro" ? "ro-RO" : "ru-RU",
+    locale === "ru" ? "ru-RU" : locale === "en" ? "en-GB" : "ro-RO",
     { weekday: "long", day: "numeric", month: "long", year: "numeric" }
   );
 
@@ -29,7 +28,7 @@ export default async function EventDetailPage({
           className="inline-flex items-center gap-2 text-blue-600 font-medium text-sm mb-6 hover:text-blue-700 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
-          {locale === "ro" ? "Înapoi la evenimente" : "Назад к мероприятиям"}
+          {locale === "ru" ? "Назад к мероприятиям" : locale === "en" ? "Back to events" : "Înapoi la evenimente"}
         </Link>
 
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
@@ -41,7 +40,7 @@ export default async function EventDetailPage({
           <div className="p-8">
             {event.free && (
               <span className="inline-block px-3 py-1 bg-green-100 text-green-700 text-sm font-medium rounded-full mb-4">
-                {locale === "ro" ? "Gratuit" : "Бесплатно"}
+                {locale === "ru" ? "Бесплатно" : locale === "en" ? "Free" : "Gratuit"}
               </span>
             )}
             <h1 className="text-3xl font-bold text-gray-900 mb-4">{title}</h1>
@@ -66,7 +65,7 @@ export default async function EventDetailPage({
                 href={`/${locale}/contact`}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors"
               >
-                {locale === "ro" ? "Înregistrează-te" : "Зарегистрироваться"}
+                {locale === "ru" ? "Зарегистрироваться" : locale === "en" ? "Register" : "Înregistrează-te"}
               </Link>
             </div>
           </div>

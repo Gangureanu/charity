@@ -35,7 +35,8 @@ interface SiteContent {
 
 export default function DashboardContentPage() {
   const locale = useLocale();
-  const isRo = locale === "ro";
+  const isRu = locale === "ru";
+  const isEn = locale === "en";
   const [content, setContent] = useState<SiteContent | null>(null);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -70,10 +71,10 @@ export default function DashboardContentPage() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">
-            {isRo ? "Gestionare conținut" : "Управление контентом"}
+            {isRu ? "Управление контентом" : isEn ? "Manage content" : "Gestionare conținut"}
           </h1>
           <p className="text-gray-600 mt-1">
-            {isRo ? "Editați informațiile de contact și statisticile" : "Редактируйте контактную информацию и статистику"}
+            {isRu ? "Редактируйте контактную информацию и статистику" : isEn ? "Edit contact details and statistics" : "Editați informațiile de contact și statisticile"}
           </p>
         </div>
         <button
@@ -88,7 +89,7 @@ export default function DashboardContentPage() {
           ) : (
             <Save className="w-4 h-4" />
           )}
-          {saved ? (isRo ? "Salvat!" : "Сохранено!") : (isRo ? "Salvează" : "Сохранить")}
+          {saved ? (isRu ? "Сохранено!" : isEn ? "Saved!" : "Salvat!") : (isRu ? "Сохранить" : isEn ? "Save" : "Salvează")}
         </button>
       </div>
 
@@ -96,14 +97,14 @@ export default function DashboardContentPage() {
         {/* Site Info */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">
-            {isRo ? "Informații de contact" : "Контактная информация"}
+            {isRu ? "Контактная информация" : isEn ? "Contact information" : "Informații de contact"}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { key: "phone", label: isRo ? "Telefon" : "Телефон" },
+              { key: "phone", label: isRu ? "Телефон" : isEn ? "Phone" : "Telefon" },
               { key: "email", label: "Email" },
-              { key: "address_ro", label: isRo ? "Adresă (RO)" : "Адрес (RO)" },
-              { key: "address_ru", label: isRo ? "Adresă (RU)" : "Адрес (RU)" },
+              { key: "address_ro", label: isRu ? "Адрес (RO)" : isEn ? "Address (RO)" : "Adresă (RO)" },
+              { key: "address_ru", label: isRu ? "Адрес (RU)" : isEn ? "Address (RU)" : "Adresă (RU)" },
               { key: "facebook", label: "Facebook URL" },
               { key: "instagram", label: "Instagram URL" },
             ].map(({ key, label }) => (
@@ -125,14 +126,14 @@ export default function DashboardContentPage() {
         {/* Stats */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">
-            {isRo ? "Statistici" : "Статистика"}
+            {isRu ? "Статистика" : isEn ? "Statistics" : "Statistici"}
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { key: "children", label: isRo ? "Copii ajutați" : "Детей помогли" },
-              { key: "families", label: isRo ? "Familii" : "Семей" },
-              { key: "years", label: isRo ? "Ani activitate" : "Лет работы" },
-              { key: "specialists", label: isRo ? "Specialiști" : "Специалистов" },
+              { key: "children", label: isRu ? "Детей помогли" : isEn ? "Children supported" : "Copii ajutați" },
+              { key: "families", label: isRu ? "Семей" : isEn ? "Families" : "Familii" },
+              { key: "years", label: isRu ? "Лет работы" : isEn ? "Years active" : "Ani activitate" },
+              { key: "specialists", label: isRu ? "Специалистов" : isEn ? "Specialists" : "Specialiști" },
             ].map(({ key, label }) => (
               <div key={key}>
                 <label className="block text-sm font-medium text-gray-700 mb-1">{label}</label>
@@ -152,7 +153,7 @@ export default function DashboardContentPage() {
         {/* Milestones */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">
-            {isRo ? "Etape istorice" : "Исторические этапы"}
+            {isRu ? "Исторические этапы" : isEn ? "Historical milestones" : "Etape istorice"}
           </h2>
           <div className="space-y-6">
             {content.milestones.map((milestone, index) => (
@@ -160,7 +161,7 @@ export default function DashboardContentPage() {
                 <div className="grid grid-cols-3 gap-3">
                   <div>
                     <label className="block text-xs font-medium text-gray-600 mb-1">
-                      {isRo ? "An" : "Год"}
+                      {isRu ? "Год" : isEn ? "Year" : "An"}
                     </label>
                     <input type="text" value={milestone.year}
                       onChange={(e) => {

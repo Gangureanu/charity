@@ -7,26 +7,28 @@ export default function DashboardPage() {
   const locale = useLocale();
   const events = getEvents();
   const team = getTeam();
+  const isRu = locale === "ru";
+  const isEn = locale === "en";
 
   const cards = [
     {
       href: `/${locale}/dashboard/events`,
       icon: <Calendar className="w-8 h-8 text-blue-600" />,
-      label: locale === "ro" ? "Evenimente" : "Мероприятия",
+      label: isRu ? "Мероприятия" : isEn ? "Events" : "Evenimente",
       count: events.length,
       bg: "bg-blue-50",
     },
     {
       href: `/${locale}/dashboard/team`,
       icon: <Users className="w-8 h-8 text-green-600" />,
-      label: locale === "ro" ? "Membrii echipei" : "Члены команды",
+      label: isRu ? "Члены команды" : isEn ? "Team members" : "Membrii echipei",
       count: team.length,
       bg: "bg-green-50",
     },
     {
       href: `/${locale}/dashboard/content`,
       icon: <FileText className="w-8 h-8 text-amber-600" />,
-      label: locale === "ro" ? "Conținut site" : "Контент сайта",
+      label: isRu ? "Контент сайта" : isEn ? "Site content" : "Conținut site",
       count: null,
       bg: "bg-amber-50",
     },
@@ -36,10 +38,10 @@ export default function DashboardPage() {
     <div className="p-8">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900">
-          {locale === "ro" ? "Panou de control" : "Панель управления"}
+          {isRu ? "Панель управления" : isEn ? "Dashboard" : "Panou de control"}
         </h1>
         <p className="text-gray-600 mt-1">
-          {locale === "ro" ? "Gestionați conținutul site-ului" : "Управляйте содержимым сайта"}
+          {isRu ? "Управляйте содержимым сайта" : isEn ? "Manage your site content" : "Gestionați conținutul site-ului"}
         </p>
       </div>
 
@@ -69,11 +71,11 @@ export default function DashboardPage() {
       {/* Recent events */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
         <h2 className="text-lg font-semibold text-gray-900 mb-4">
-          {locale === "ro" ? "Evenimente recente" : "Последние мероприятия"}
+          {isRu ? "Последние мероприятия" : isEn ? "Recent events" : "Evenimente recente"}
         </h2>
         {events.length === 0 ? (
           <p className="text-gray-500 text-sm">
-            {locale === "ro" ? "Nu există evenimente" : "Нет мероприятий"}
+            {isRu ? "Нет мероприятий" : isEn ? "No events yet" : "Nu există evenimente"}
           </p>
         ) : (
           <div className="space-y-3">
@@ -81,15 +83,15 @@ export default function DashboardPage() {
               <div key={event.id} className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0">
                 <div>
                   <p className="font-medium text-gray-800 text-sm">
-                    {locale === "ro" ? event.title_ro : event.title_ru}
+                    {isRu ? event.title_ru : event.title_ro}
                   </p>
                   <p className="text-gray-500 text-xs mt-0.5">
-                    {new Date(event.date).toLocaleDateString(locale === "ro" ? "ro-RO" : "ru-RU")}
+                    {new Date(event.date).toLocaleDateString(isRu ? "ru-RU" : isEn ? "en-GB" : "ro-RO")}
                   </p>
                 </div>
                 {event.free && (
                   <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full">
-                    {locale === "ro" ? "Gratuit" : "Бесплатно"}
+                    {isRu ? "Бесплатно" : isEn ? "Free" : "Gratuit"}
                   </span>
                 )}
               </div>

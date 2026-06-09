@@ -11,7 +11,7 @@ export function middleware(request: NextRequest) {
   if (pathname.includes("/dashboard")) {
     const token = request.cookies.get("auth_token")?.value;
     if (!token) {
-      const locale = pathname.split("/")[1] || "ro";
+      const locale = pathname.split("/")[1] || routing.defaultLocale;
       return NextResponse.redirect(new URL(`/${locale}/login`, request.url));
     }
   }

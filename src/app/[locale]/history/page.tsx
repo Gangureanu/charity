@@ -47,8 +47,8 @@ export default function HistoryPage() {
 
             <div className="space-y-8">
               {milestones.map((milestone, index) => {
-                const title = locale === "ro" ? milestone.title_ro : milestone.title_ru;
-                const text = locale === "ro" ? milestone.text_ro : milestone.text_ru;
+                const title = locale === "ru" ? milestone.title_ru : milestone.title_ro;
+                const text = locale === "ru" ? milestone.text_ru : milestone.text_ro;
                 return (
                   <div key={index} className="relative flex gap-6">
                     {/* Year bubble */}

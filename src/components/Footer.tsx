@@ -10,10 +10,10 @@ export default function Footer() {
   const locale = useLocale();
   const content = getContent();
 
-  const address = locale === "ro" ? content.site.address_ro : content.site.address_ru;
+  const address = locale === "ru" ? content.site.address_ru : content.site.address_ro;
   const phoneNumbers = [content.site.phone, content.site.phone_secondary].filter(Boolean);
-  const facebookLabel = locale === "ro" ? "Facebook" : "Facebook";
-  const contactTitle = locale === "ro" ? "Contact" : "Контакты";
+  const facebookLabel = "Facebook";
+  const contactTitle = locale === "ru" ? "Контакты" : "Contact";
   const socialHandle = "TenderHeartMD";
 
   const toTelHref = (phone: string) => `tel:${phone.replace(/[^+\d]/g, "")}`;

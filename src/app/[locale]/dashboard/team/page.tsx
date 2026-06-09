@@ -25,7 +25,8 @@ const empty: Omit<TeamMember, "id"> = {
 
 export default function DashboardTeamPage() {
   const locale = useLocale();
-  const isRo = locale === "ro";
+  const isRu = locale === "ru";
+  const isEn = locale === "en";
   const [team, setTeam] = useState<TeamMember[]>([]);
   const [editing, setEditing] = useState<TeamMember | null>(null);
   const [creating, setCreating] = useState(false);
@@ -59,7 +60,7 @@ export default function DashboardTeamPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm(isRo ? "Sigur doriți să ștergeți?" : "Вы уверены, что хотите удалить?")) return;
+    if (!confirm(isRu ? "Вы уверены, что хотите удалить?" : isEn ? "Are you sure you want to delete?" : "Sigur doriți să ștergeți?")) return;
     await fetch(`/api/dashboard/team?id=${id}`, { method: "DELETE" });
     setTeam(team.filter((m) => m.id !== id));
   };
@@ -68,12 +69,12 @@ export default function DashboardTeamPage() {
     <div className="p-8">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">{isRo ? "Gestionare echipă" : "Управление командой"}</h1>
-          <p className="text-gray-600 mt-1">{team.length} {isRo ? "membri" : "участников"}</p>
+          <h1 className="text-3xl font-bold text-gray-900">{isRu ? "Управление командой" : isEn ? "Manage team" : "Gestionare echipă"}</h1>
+          <p className="text-gray-600 mt-1">{team.length} {isRu ? "участников" : isEn ? "members" : "membri"}</p>
         </div>
         <button onClick={openCreate} className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors">
           <Plus className="w-4 h-4" />
-          {isRo ? "Adaugă membru" : "Добавить участника"}
+          {isRu ? "Добавить участника" : isEn ? "Add member" : "Adaugă membru"}
         </button>
       </div>
 
@@ -86,8 +87,8 @@ export default function DashboardTeamPage() {
               </div>
               <div className="min-w-0">
                 <h3 className="font-semibold text-gray-900">{member.name}</h3>
-                <p className="text-sm text-blue-600 mt-0.5">{isRo ? member.role_ro : member.role_ru}</p>
-                <p className="text-sm text-gray-500 mt-1 line-clamp-1">{isRo ? member.bio_ro : member.bio_ru}</p>
+                <p className="text-sm text-blue-600 mt-0.5">{isRu ? member.role_ru : member.role_ro}</p>
+                <p className="text-sm text-gray-500 mt-1 line-clamp-1">{isRu ? member.bio_ru : member.bio_ro}</p>
               </div>
             </div>
             <div className="flex gap-2 shrink-0">
@@ -107,13 +108,13 @@ export default function DashboardTeamPage() {
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between p-6 border-b border-gray-100">
               <h2 className="text-xl font-bold text-gray-900">
-                {creating ? (isRo ? "Adaugă membru" : "Добавить участника") : (isRo ? "Editează membru" : "Редактировать участника")}
+                {creating ? (isRu ? "Добавить участника" : isEn ? "Add member" : "Adaugă membru") : (isRu ? "Редактировать участника" : isEn ? "Edit member" : "Editează membru")}
               </h2>
               <button onClick={closeModal} className="p-2 text-gray-400 hover:text-gray-600 rounded-lg"><X className="w-5 h-5" /></button>
             </div>
             <div className="p-6 space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{isRo ? "Nume" : "Имя"}</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">{isRu ? "Имя" : isEn ? "Name" : "Nume"}</label>
                 <input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
                   className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
               </div>
@@ -142,11 +143,11 @@ export default function DashboardTeamPage() {
             </div>
             <div className="flex gap-3 p-6 border-t border-gray-100">
               <button onClick={closeModal} className="flex-1 px-4 py-2 text-gray-700 bg-gray-100 rounded-xl font-medium hover:bg-gray-200 transition-colors">
-                {isRo ? "Anulează" : "Отмена"}
+                {isRu ? "Отмена" : isEn ? "Cancel" : "Anulează"}
               </button>
               <button onClick={handleSave} disabled={loading} className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors disabled:opacity-60">
                 {loading ? <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <Save className="w-4 h-4" />}
-                {isRo ? "Salvează" : "Сохранить"}
+                {isRu ? "Сохранить" : isEn ? "Save" : "Salvează"}
               </button>
             </div>
           </div>
