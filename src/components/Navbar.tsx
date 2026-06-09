@@ -49,7 +49,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#f8fcfc]/95 shadow-[0_12px_30px_rgba(15,111,134,0.12)] border-b border-[#d9ecef]"
+          ? "bg-[#fbfdfb]/95 shadow-[0_12px_30px_rgba(63,138,85,0.12)] border-b border-[#d6e8d9]"
           : "bg-[#f8fcfc]/90 backdrop-blur-sm border-b border-transparent"
       }`}
     >
@@ -65,7 +65,6 @@ export default function Navbar() {
               priority
               className="h-11 w-auto"
             />
-            <span className="hidden sm:inline text-xl font-bold text-[#0f6f86]">ABA Moldova</span>
           </Link>
 
           {/* Desktop nav */}
@@ -76,8 +75,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   pathname === link.href
-                    ? "text-[#0f6f86] bg-[#e4f4f7]"
-                    : "text-slate-700 hover:text-[#0f6f86] hover:bg-[#edf8fa]"
+                    ? "text-[#3f8a55] bg-[#e8f4ea]"
+                    : "text-slate-700 hover:text-[#3f8a55] hover:bg-[#eef8f0]"
                 }`}
               >
                 {link.label}
@@ -91,16 +90,16 @@ export default function Navbar() {
             <div className="relative" ref={langRef}>
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-[#0f6f86] hover:bg-[#edf8fa] transition-colors"
+                className="flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-[#3f8a55] hover:bg-[#eef8f0] transition-colors"
               >
                 <Globe className="w-4 h-4" />
                 <span className="uppercase">{locale}</span>
               </button>
               {langOpen && (
-                <div className="absolute right-0 mt-1 w-28 bg-white rounded-lg shadow-lg border border-[#d9ecef] overflow-hidden z-50">
+                <div className="absolute right-0 mt-1 w-28 bg-white rounded-lg shadow-lg border border-[#d6e8d9] overflow-hidden z-50">
                   <Link
                     href={switchPath}
-                    className="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-[#edf8fa] hover:text-[#0f6f86]"
+                    className="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-[#eef8f0] hover:text-[#3f8a55]"
                     onClick={() => setLangOpen(false)}
                   >
                     <span className="font-medium uppercase">{otherLocale}</span>
@@ -122,7 +121,7 @@ export default function Navbar() {
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 rounded-md text-slate-700 hover:text-[#0f6f86] hover:bg-[#edf8fa] transition-colors"
+              className="lg:hidden p-2 rounded-md text-slate-700 hover:text-[#3f8a55] hover:bg-[#eef8f0] transition-colors"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -132,7 +131,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white border-t border-[#d9ecef] shadow-lg">
+        <div className="lg:hidden bg-white border-t border-[#d6e8d9] shadow-lg">
           <div className="px-4 py-2 space-y-1">
             {navLinks.map((link) => (
               <Link
@@ -141,8 +140,8 @@ export default function Navbar() {
                 onClick={() => setMobileOpen(false)}
                 className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   pathname === link.href
-                    ? "text-[#0f6f86] bg-[#e4f4f7]"
-                    : "text-slate-700 hover:text-[#0f6f86] hover:bg-[#edf8fa]"
+                    ? "text-[#3f8a55] bg-[#e8f4ea]"
+                    : "text-slate-700 hover:text-[#3f8a55] hover:bg-[#eef8f0]"
                 }`}
               >
                 {link.label}
