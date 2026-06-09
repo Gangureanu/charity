@@ -1,10 +1,10 @@
 import createMiddleware from "next-intl/middleware";
-import { routing } from "./i18n/routing";
 import { NextRequest, NextResponse } from "next/server";
+import { routing } from "./i18n/routing";
 
-const intlMiddleware = createMiddleware(routing);
+const intlProxy = createMiddleware(routing);
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Protect dashboard routes
@@ -16,11 +16,9 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  return intlMiddleware(request);
+  return intlProxy(request);
 }
 
 export const config = {
-  matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).)*",
-  ],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).)*"],
 };
