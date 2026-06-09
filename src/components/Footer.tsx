@@ -1,13 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations, useLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { getContent } from "@/lib/data";
 
-export default function Footer() {
-  const t = useTranslations("nav");
-  const tf = useTranslations("footer");
-  const locale = useLocale();
+export default async function Footer({ locale }: { locale: string }) {
+  const t = await getTranslations({ locale, namespace: "nav" });
+  const tf = await getTranslations({ locale, namespace: "footer" });
   const content = getContent();
 
   const address = locale === "ru" ? content.site.address_ru : content.site.address_ro;

@@ -1,10 +1,14 @@
-import { useTranslations, useLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { getContent } from "@/lib/data";
 import { Clock } from "lucide-react";
 
-export default function HistoryPage() {
-  const t = useTranslations("history");
-  const locale = useLocale();
+export default async function HistoryPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "history" });
   const content = getContent();
   const milestones = content.milestones;
 

@@ -1,11 +1,15 @@
 import Link from "next/link";
-import { useTranslations, useLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { getEvents } from "@/lib/data";
 import { Calendar, MapPin } from "lucide-react";
 
-export default function EventsPage() {
-  const t = useTranslations("events");
-  const locale = useLocale();
+export default async function EventsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "events" });
   const events = getEvents();
 
   return (

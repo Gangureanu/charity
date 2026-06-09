@@ -1,10 +1,14 @@
-import { useTranslations, useLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { getTeam } from "@/lib/data";
 import { User } from "lucide-react";
 
-export default function TeamPage() {
-  const t = useTranslations("team");
-  const locale = useLocale();
+export default async function TeamPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "team" });
   const team = getTeam();
 
   return (

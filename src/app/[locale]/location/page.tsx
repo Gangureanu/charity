@@ -1,10 +1,14 @@
-import { useTranslations, useLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { getContent } from "@/lib/data";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
-export default function LocationPage() {
-  const t = useTranslations("location");
-  const locale = useLocale();
+export default async function LocationPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "location" });
   const content = getContent();
 
   const address = locale === "ru" ? content.site.address_ru : content.site.address_ro;

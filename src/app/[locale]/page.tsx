@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useTranslations, useLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { getContent } from "@/lib/data";
 import {
   Heart,
@@ -10,12 +10,16 @@ import {
   CheckCircle,
 } from "lucide-react";
 
-export default function HomePage() {
-  const t = useTranslations("home");
-  const locale = useLocale();
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "home" });
   const content = getContent();
   const stats = content.stats;
-  const te = useTranslations("events");
+  const te = await getTranslations({ locale, namespace: "events" });
   const isRu = locale === "ru";
   const isEn = locale === "en";
 
