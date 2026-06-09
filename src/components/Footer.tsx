@@ -36,14 +36,14 @@ export default function Footer() {
             <p className="text-[#c8ddd0] text-sm leading-relaxed">{tf("tagline")}</p>
             <div className="flex gap-3 mt-4">
               {content.site.facebook && (
-                <a href={content.site.facebook} target="_blank" rel="noopener noreferrer"
-                   className="w-9 h-9 bg-[#6f8615] rounded-full flex items-center justify-center hover:bg-[#a3c61e] transition-colors">
+                 <a href={content.site.facebook} target="_blank" rel="noopener noreferrer"
+                   className="w-9 h-9 bg-[#5c6d30] rounded-full flex items-center justify-center hover:bg-[#73893b] transition-colors">
                   f
                 </a>
               )}
               {content.site.instagram && (
-                <a href={content.site.instagram} target="_blank" rel="noopener noreferrer"
-                   className="w-9 h-9 bg-[#6f8615] rounded-full flex items-center justify-center hover:bg-[#a3c61e] transition-colors">
+                 <a href={content.site.instagram} target="_blank" rel="noopener noreferrer"
+                   className="w-9 h-9 bg-[#5c6d30] rounded-full flex items-center justify-center hover:bg-[#73893b] transition-colors">
                   ig
                 </a>
               )}
