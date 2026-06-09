@@ -205,11 +205,11 @@ export default function HomePage() {
       </section>
 
       {/* ABOUT */}
-      <section className="py-16 bg-[#fbfdfb]">
+      <section className="py-16 bg-[#fdfde9]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-start">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#e8f4ea] px-4 py-2 text-sm font-medium text-[#3f8a55] mb-5">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#f1f8d7] px-4 py-2 text-sm font-medium text-[#a3c61e] mb-5">
                 <Heart className="w-4 h-4" fill="currentColor" />
                 {aboutTitle}
               </div>
@@ -221,19 +221,19 @@ export default function HomePage() {
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
-              <div className="mt-6 rounded-2xl border border-[#d6e8d9] bg-white px-5 py-4 text-sm text-slate-600">
+              <div className="mt-6 rounded-2xl border border-[#dce9ad] bg-white px-5 py-4 text-sm text-slate-600">
                 {aboutDocsNote}
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl border border-[#d6e8d9] shadow-sm p-8">
+            <div className="bg-white rounded-3xl border border-[#dce9ad] shadow-sm p-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-5">
                 {isRo ? "Direcții principale de activitate" : "Основные направления деятельности"}
               </h3>
               <ul className="space-y-4">
                 {aboutHighlights.map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 mt-0.5 shrink-0 text-[#3f8a55]" />
+                    <CheckCircle className="w-5 h-5 mt-0.5 shrink-0 text-[#a3c61e]" />
                     <span className="text-gray-700 leading-relaxed">{item}</span>
                   </li>
                 ))}

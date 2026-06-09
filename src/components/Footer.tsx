@@ -37,13 +37,13 @@ export default function Footer() {
             <div className="flex gap-3 mt-4">
               {content.site.facebook && (
                 <a href={content.site.facebook} target="_blank" rel="noopener noreferrer"
-                   className="w-9 h-9 bg-[#264a3b] rounded-full flex items-center justify-center hover:bg-[#3f8a55] transition-colors">
+                   className="w-9 h-9 bg-[#6f8615] rounded-full flex items-center justify-center hover:bg-[#a3c61e] transition-colors">
                   f
                 </a>
               )}
               {content.site.instagram && (
                 <a href={content.site.instagram} target="_blank" rel="noopener noreferrer"
-                   className="w-9 h-9 bg-[#264a3b] rounded-full flex items-center justify-center hover:bg-[#3f8a55] transition-colors">
+                   className="w-9 h-9 bg-[#6f8615] rounded-full flex items-center justify-center hover:bg-[#a3c61e] transition-colors">
                   ig
                 </a>
               )}

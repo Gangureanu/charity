@@ -66,21 +66,21 @@ export default function ContactPage() {
               <h2 className="text-2xl font-bold text-gray-900 mb-6">{infoTitle}</h2>
               <div className="space-y-5 text-gray-700">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 mt-1 shrink-0 text-[#3f8a55]" />
+                  <MapPin className="w-5 h-5 mt-1 shrink-0 text-[#a3c61e]" />
                   <div>
                     <p className="text-sm font-semibold text-gray-900">{addressLabel}</p>
                     <p className="mt-1 leading-relaxed">{address}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 mt-1 shrink-0 text-[#3f8a55]" />
+                  <Phone className="w-5 h-5 mt-1 shrink-0 text-[#a3c61e]" />
                   <div className="space-y-1">
                     <p className="text-sm font-semibold text-gray-900">{t("phone")}</p>
                     {phoneNumbers.map((phone) => (
                       <a
                         key={phone}
                         href={toTelHref(phone)}
-                        className="block hover:text-[#3f8a55] transition-colors"
+                        className="block hover:text-[#a3c61e] transition-colors"
                       >
                         {phone}
                       </a>
@@ -88,17 +88,17 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 mt-1 shrink-0 text-[#3f8a55]" />
+                  <Mail className="w-5 h-5 mt-1 shrink-0 text-[#a3c61e]" />
                   <div className="space-y-1">
                     <p className="text-sm font-semibold text-gray-900">{t("email")}</p>
-                    <a href={`mailto:${content?.site.email ?? "fundatiadpc@gmail.com"}`} className="block hover:text-[#3f8a55] transition-colors">
+                    <a href={`mailto:${content?.site.email ?? "fundatiadpc@gmail.com"}`} className="block hover:text-[#a3c61e] transition-colors">
                       {content?.site.email ?? "fundatiadpc@gmail.com"}
                     </a>
                   </div>
                 </div>
                 {content?.site.facebook && (
                   <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 mt-1 shrink-0 rounded-full bg-[#3f8a55] text-white text-[11px] font-bold flex items-center justify-center">
+                    <div className="w-5 h-5 mt-1 shrink-0 rounded-full bg-[#a3c61e] text-[#314106] text-[11px] font-bold flex items-center justify-center">
                       f
                     </div>
                     <div className="space-y-1">
@@ -107,7 +107,7 @@ export default function ContactPage() {
                         href={content.site.facebook}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block hover:text-[#3f8a55] transition-colors"
+                        className="block hover:text-[#a3c61e] transition-colors"
                       >
                         TenderHeartMD
                       </a>

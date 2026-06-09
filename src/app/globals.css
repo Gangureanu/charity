@@ -8,16 +8,16 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-blue-50: #f2f8f2;
-  --color-blue-100: #dceede;
-  --color-blue-200: #bddcc2;
-  --color-blue-300: #94c39d;
-  --color-blue-400: #6ba97b;
-  --color-blue-500: #4f9664;
-  --color-blue-600: #3f8a55;
-  --color-blue-700: #336f45;
-  --color-blue-800: #2c5939;
-  --color-blue-900: #26492f;
+  --color-blue-50: #fdfde9;
+  --color-blue-100: #f6fad9;
+  --color-blue-200: #ebf1b3;
+  --color-blue-300: #dce67f;
+  --color-blue-400: #c7d94a;
+  --color-blue-500: #a3c61e;
+  --color-blue-600: #88a519;
+  --color-blue-700: #6f8615;
+  --color-blue-800: #596b11;
+  --color-blue-900: #47550e;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
